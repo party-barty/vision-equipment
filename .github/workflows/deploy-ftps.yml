@@ -28,7 +28,7 @@ jobs:
           server-dir: /
           dangerous-clean-slate: false
           log-level: verbose
-          dry-run: true   # remove this line once it looks correct in the logs
+          # dry-run: true   # remove this line once it looks correct in the logs
           exclude: |
             **/.git*
             **/.github/**
