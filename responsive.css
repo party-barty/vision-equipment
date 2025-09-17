@@ -263,3 +263,23 @@ h1,h2,h3,h4,h5,h6,span,a {
   font-size: 100%;
 }
 }
+
+
+/* 
+*  added by abby on 9/16/25
+* for ve-tech page
+*/
+
+
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .ve-tech__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Phone (≤768px) ===== */
+@media (max-width: 768px) {
+  .ve-tech__grid { grid-template-columns: 1fr; }
+}
+
+ /* End of added code */
+

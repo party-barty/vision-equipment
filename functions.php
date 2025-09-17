@@ -276,24 +276,18 @@ add_action('wpcf7_mail_sent', 'cf7dtx_increment_mail_counter');
 
 /* visionequipment.net theme functions */
 
-
+/* added by Abby on 9/16/25 for CSS enqueueing */
 // Enqueue Order: If the child CSS isn’t enqueued last (after parent + Beaver front-end), overrides won’t stick.
 
-add_action('wp_enqueue_scripts', function () {
-	// Parent theme CSS
-	wp_enqueue_style('bb-theme', get_template_directory_uri().'/style.css', [], null);
-  
-	// Child theme CSS LAST (versioned for cache-bust)
-	wp_enqueue_style(
-	  'bb-child',
-	  get_stylesheet_directory_uri().'/style.css',
-	  ['bb-theme'],
-	  filemtime(get_stylesheet_directory().'/style.css')
-	);
-  
-	// If you keep responsive.css and ve-about.css:
-	$dir = get_stylesheet_directory();
-	wp_enqueue_style('bb-child-responsive', get_stylesheet_directory_uri().'/responsive.css', ['bb-child'], filemtime("$dir/responsive.css"));
-	wp_enqueue_style('bb-child-about', get_stylesheet_directory_uri().'/ve-about.css', ['bb-child'], filemtime("$dir/ve-about.css"));
-  }, 20);
-  
+<?php
+add_action('wp_enqueue_scripts', function() {
+  // Parent theme CSS
+  wp_enqueue_style('bb-theme', get_template_directory_uri().'/style.css', [], null);
+
+  // Child theme CSS (base + responsive, loaded last)
+  $dir = get_stylesheet_directory();
+  wp_enqueue_style('bb-child', get_stylesheet_directory_uri().'/style.css', ['bb-theme'], filemtime("$dir/style.css"));
+  wp_enqueue_style('bb-child-responsive', get_stylesheet_directory_uri().'/responsive.css', ['bb-child'], filemtime("$dir/responsive.css"));
+}, 20);
+
+  /* end added by Abby on 9/16/25 for CSS enqueueing */

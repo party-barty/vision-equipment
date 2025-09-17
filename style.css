@@ -9,6 +9,32 @@ Author URI: http://a2y.xyz
 template: bb-theme
 */
 
+/* 
+* added by abby on 9/16/25
+* Reset & box-sizing inconsistencies:  
+* Multiple resets (parent + child + plugin) lead to spacing flicker.
+*/
+
+/* ===== Reset ===== */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+/* ===== Tokens ===== */
+:root {
+  --ve-teal: #0a5c7a;
+  --ve-slate: #0b3040;
+  --ve-max: 1100px;
+  --ve-gap: 18px;
+}
+
+/* ===== Components ===== */
+.ve-card { ... }
+.ve-tech__grid { display:grid; gap:var(--ve-gap); grid-template-columns:repeat(4,1fr); }
+
+
+/* end of abby's addition */
+
+
 /* Add your custom styles here... */ 
 
 body {
@@ -1124,22 +1150,11 @@ input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, 
 
 
 
+/* added by abby on 9/16/25 to resolve conflicting CSS issues*/
+
+svg { display:block; line-height:0; }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Keep block CSS from constraining Beaver rows */
+.fl-builder-content .wp-block { max-width: 100%; }
+.fl-builder-content .wp-block p { margin-bottom: 1em; }
