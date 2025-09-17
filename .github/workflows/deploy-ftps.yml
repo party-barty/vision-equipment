@@ -2,13 +2,13 @@ name: Deploy Theme via FTPS
 
 on:
   push:
-    branches: [ "main" ]
-    # Optional: limit to only theme files
-    # paths: [ "bb-theme-child/**" ]
+    branches: [ main ]      # only deploy when pushing to main
+  workflow_dispatch:        # allow manual run
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -16,24 +16,30 @@ jobs:
       - name: Deploy over FTPS (Explicit TLS)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.3
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
+          server: ${{ secrets.FTP_SERVER }}      # ftp.visionequipment.net
+          username: ${{ secrets.FTP_USERNAME }}  # git-deploy@visionequipment.net
+          password: ${{ secrets.FTP_PASSWORD }}  # (set in GitHub secrets)
           port: 21
-          # If your theme is in the repo root:
+          protocol: ftps
+
+          # Local path to theme files in repo (repo root)
           local-dir: ./
-          # If theme is inside a subfolder, adjust:
-          # local-dir: "./bb-theme-child"
+
+          # Server path (jailed root for this FTP user)
           server-dir: /
-          dangerous-clean-slate: false
+
+          # Increase timeout and enable verbose logs
+          timeout: 120000
           log-level: verbose
-          # dry-run: true   # remove this line once it looks correct in the logs
+
+          # Don’t wipe folder clean before deploy
+          dangerous-clean-slate: false
+
+          # Exclusions (prevent FIN packet issues + unnecessary files)
           exclude: |
+            **/error_log
+            **/*.log
             **/.git*
             **/.github/**
             **/node_modules/**
-            **/vendor/**
-            **/*.log
-            **/*.map
             **/.DS_Store
