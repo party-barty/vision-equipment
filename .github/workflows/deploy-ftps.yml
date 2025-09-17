@@ -25,7 +25,7 @@ jobs:
           local-dir: ./
           # If theme is inside a subfolder, adjust:
           # local-dir: "./bb-theme-child"
-          server-dir: /public_html/wp-content/themes/bb-theme-child/
+          server-dir: /
           dangerous-clean-slate: false
           log-level: verbose
           dry-run: true   # remove this line once it looks correct in the logs
