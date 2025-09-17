@@ -279,7 +279,6 @@ add_action('wpcf7_mail_sent', 'cf7dtx_increment_mail_counter');
 /* added by Abby on 9/16/25 for CSS enqueueing */
 // Enqueue Order: If the child CSS isn’t enqueued last (after parent + Beaver front-end), overrides won’t stick.
 
-<?php
 add_action('wp_enqueue_scripts', function() {
   // Parent theme CSS
   wp_enqueue_style('bb-theme', get_template_directory_uri().'/style.css', [], null);
