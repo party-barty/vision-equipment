@@ -22,11 +22,13 @@ jobs:
           protocol: ftps
           port: 21
           # If your theme is in the repo root:
-          local-dir: "./"
+          local-dir: ./
           # If theme is inside a subfolder, adjust:
           # local-dir: "./bb-theme-child"
-          server-dir: "/public_html/wp-content/themes/bb-theme-child"
+          server-dir: /public_html/wp-content/themes/bb-theme-child/
           dangerous-clean-slate: false
+          log-level: verbose
+          dry-run: true   # remove this line once it looks correct in the logs
           exclude: |
             **/.git*
             **/.github/**
