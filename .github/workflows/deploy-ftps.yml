@@ -28,7 +28,7 @@ jobs:
           set -euo pipefail
           echo "Running PHP lint..."
           # Adjust the path below to where your child theme lives in the repo
-          THEME_DIR="wp-content/themes/bb-theme-child"
+          THEME_DIR="."
           # If your theme is at repo root, set THEME_DIR="."
           find "$THEME_DIR" -type f -name "*.php" -print0 | xargs -0 -n1 php -l
           echo "✅ PHP lint passed"
