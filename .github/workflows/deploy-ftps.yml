@@ -1,0 +1,37 @@
+name: Deploy Theme via FTPS
+
+on:
+  push:
+    branches: [ "main" ]
+    # Optional: limit to only theme files
+    # paths: [ "bb-theme-child/**" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy over FTPS (Explicit TLS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          # If your theme is in the repo root:
+          local-dir: "./"
+          # If theme is inside a subfolder, adjust:
+          # local-dir: "./bb-theme-child"
+          server-dir: "/public_html/wp-content/themes/bb-theme-child"
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/vendor/**
+            **/*.log
+            **/*.map
+            **/.DS_Store
