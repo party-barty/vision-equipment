@@ -1,24 +1,46 @@
-name: Deploy Theme via FTPS
+name: Deploy WordPress Theme via FTPS
 
 on:
   push:
-    branches: [ main ]      # only deploy when pushing to main
-  workflow_dispatch:        # allow manual run
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # PHP for linting
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      # Fail the job if ANY PHP file has a syntax error
+      - name: PHP Syntax Check
+        run: |
+          set -euo pipefail
+          echo "🧐 Running PHP lint..."
+          # Adjust the path below to where your child theme lives in the repo
+          THEME_DIR="wp-content/themes/bb-theme-child"
+          # If your theme is at repo root, set THEME_DIR="."
+          find "$THEME_DIR" -type f -name "*.php" -print0 | xargs -0 -n1 php -l
+          echo "✅ PHP lint passed"
+
+      # Optional: only proceed if lint succeeded (it will auto-fail otherwise)
+
       - name: Deploy over FTPS (Explicit TLS)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.3
         with:
-          server: ${{ secrets.FTP_SERVER }}      # ftp.visionequipment.net
-          username: ${{ secrets.FTP_USERNAME }}  # git-deploy@visionequipment.net
-          password: ${{ secrets.FTP_PASSWORD }}  # (set in GitHub secrets)
+          server: ${{ secrets.FTP_SERVER }}        # e.g. ftp.visionequipment.net or 72.167.125.62
+          username: ${{ secrets.FTP_USERNAME }}    # e.g. git-deploy@visionequipment.net
+          password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftps
 
@@ -28,14 +50,10 @@ jobs:
           # Server path (jailed root for this FTP user)
           server-dir: /
 
-          # Increase timeout and enable verbose logs
           timeout: 120000
           log-level: verbose
-
-          # Don’t wipe folder clean before deploy
           dangerous-clean-slate: false
 
-          # Exclusions (prevent FIN packet issues + unnecessary files)
           exclude: |
             **/error_log
             **/*.log
@@ -43,3 +61,7 @@ jobs:
             **/.github/**
             **/node_modules/**
             **/.DS_Store
+            **/vendor/**
+            **/*.md
+            **/README*
+            **/LICENSE*
