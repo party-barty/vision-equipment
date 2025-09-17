@@ -26,7 +26,7 @@ jobs:
       - name: PHP Syntax Check
         run: |
           set -euo pipefail
-          echo "🧐 Running PHP lint..."
+          echo "Running PHP lint..."
           # Adjust the path below to where your child theme lives in the repo
           THEME_DIR="wp-content/themes/bb-theme-child"
           # If your theme is at repo root, set THEME_DIR="."
