@@ -1,0 +1,265 @@
+/* Responsive CSS Here */ 
+
+@media only screen and (max-width: 1024px) {
+.fl-page-nav-wrap {
+    display: none;
+}
+.fl-page-header-fixed {
+    display: none !important;
+}
+.fl-page-bar-nav.nav.navbar-nav.menu {
+    float: none;
+    padding: 10px 50px;
+    text-align: center;
+    width: 100%;
+}
+.responsive-menu-button.responsive-menu-accessible.responsive-menu-boring {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+    right: 15px !important;
+}
+.staff_contents {
+  width: 31%;
+}
+.left_contents {
+  width: 100%;
+}
+.right_contents {
+  margin-top: 50px;
+  width: 345px;
+}
+.food_packages .fl-col {
+  margin-bottom: 25px;
+}
+.button_one .gallery-icon.landscape > a {
+  background: rgba(0, 0, 0, 0) url("img/imagebutton.png") no-repeat scroll 0 0 / 100% 100%;
+}
+.page-header {
+  padding: 0 85px;
+  position: inherit;
+}
+.slide-thumb.wp-post-image {
+  height: 360px;
+}
+.slider_contents {
+  margin-top: 99px;
+}
+.fl-logo-img {
+  max-height: 55px;
+}
+.page_title {
+  padding-top: 40px;
+}
+.fl-rich-text span {
+  font-size: 100% !important;
+}
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 991px) {
+.home_div_one .fl-col {
+  width: 50% !important;
+  margin-bottom: 42px;
+}
+.fl-page-footer-widgets .col-sm-4.col-md-4 {
+  display: table;
+  margin-bottom: 40px;
+  width: 100%;
+}
+.fl-icon-wrap {
+  float: left;
+}
+.open_skating_calendar .fl-icon-wrap {
+  float: none;
+}
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+.fl-node-589372b4541b1 .fl-rich-text {
+  text-align: center;
+}
+}
+
+
+
+
+@media only screen and (max-width: 767px) {
+.home_div_one .fl-col {
+  width: 100% !important;
+}
+.fl-page-header-row .col-md-6.col-sm-6:last-child {
+    display: block;
+    overflow: hidden;
+}
+.fl-page-footer-wrap .social_menu {
+  padding-left: 15px;
+  text-align: left;
+}
+.social_menu {
+    float: none !important;
+    margin-top: 20px;
+    text-align: center;
+}
+.social_menu li {
+    display: inline-block !important;
+}
+.staff_contents {
+  width: 48%;
+}
+.contact_us_form .gform_button.button {
+  height: 45px;
+  padding: 0 !important;
+  width: 160px !important;
+}
+.gallery_contents > ul {
+  padding-left: 2px !important;
+}
+.page_title > h2 {
+  padding: 30px 0 15px;
+}
+.page_table,table {
+  border-collapse: collapse !important;
+  display: block;
+  overflow: auto;
+  width: 100% !important;
+}
+.nav.navbar-nav.social_menu {
+  margin-top: 0;
+}
+.fl-page-header-content {
+  display: block;
+  left: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  right: 0;
+  top: 120px;
+  width: 100%;
+}
+.fl-logo-img {
+  max-height: 80px;
+}
+.page-header {
+  max-height: 180px;
+}
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+.fl-page-bar-nav.nav.navbar-nav.menu {
+  text-align: left;
+  padding: 10px 50px 10px 0;
+}
+.textwidget #input_1_1, .textwidget .gform_button.button {
+  border-color: #3159a8 !important;
+  width: 100% !important;
+}
+.textwidget .gform_button.button {
+  border-color: #3159a8 !important;
+}
+.staff_contents {
+  text-align: center;
+  width: 100%;
+}
+.title_one,.title_three {
+  text-align: center;
+  width: 100%;
+}
+.title_two {
+  border: 1px solid #d9d9d9;
+  text-align: center;
+  width: 100%;
+}
+.employment_contents {
+  border-color: #d9d9d9;
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 15px 0;
+}
+.titleArea {
+  display: block;
+  float: left;
+  padding-bottom: 12px;
+  text-align: center;
+  width: 100%;
+}
+.location {
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+  display: block;
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+}
+.apply_area {
+  display: block;
+  float: left;
+  padding-top: 15px;
+  text-align: center;
+  width: 100%;
+}
+.right_contents {
+  width: 100%;
+}
+.slider_contents {
+  height: 100%;
+  margin-left: 0;
+  margin-top: 0;
+  width: 100%;
+}
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+.gform_wrapper.gf_browser_gecko select,.contact_us_form input, .contact_us_form textarea {
+  font-size: 13px !important;
+}
+
+.slide-thumb.wp-post-image {
+  height: auto !important;
+}
+.owl-controls.clickable {
+  display: none;
+}
+.owl-controls.clickable {
+  display: none !important;
+}
+.button_area {
+  display: none;
+}
+.slider_contents h2,.slider_contents p {
+  color: #fff;
+  font-size: 100%;
+}
+.page_title h2 {
+  font-size: 100%;
+  line-height: 40px;
+}
+h1,h2,h3,h4,h5,h6,span,a {
+  font-size: 100%;
+}
+}
