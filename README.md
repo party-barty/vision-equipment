@@ -13,7 +13,9 @@ parent-template: bb-theme
 ```
 
 </hr>
+
 Recommended File Structure for `bb-theme-child` that keeps `style.css` and `responsive.css` clean, predictable, and easy to debug:
+
 
 ```pgsql
 bb-theme-child/
