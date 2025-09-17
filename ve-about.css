@@ -1,0 +1,25 @@
+/* Vision Equipment – About template styles (minimal, theme-friendly) */
+.ve-container { max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+.ve-about__hero { padding: 3rem 0 1rem; }
+.ve-about__title { margin: 0 0 .5rem; }
+.ve-about__subtitle { font-size: 1.125rem; opacity: .85; margin: 0; }
+
+.ve-section { margin: 2rem 0; }
+.ve-rule { border: 0; height: 1px; background: rgba(0,0,0,.08); margin: 2rem 0; }
+
+.ve-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.ve-list { padding-left: 1.2rem; }
+
+.ve-team { columns: 2; column-gap: 2rem; padding-left: 1.2rem; }
+@media (max-width: 640px) { .ve-team { columns: 1; } }
+
+.ve-cta { text-align: left; }
+.ve-button {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.ve-link { text-decoration: underline; text-underline-offset: 3px; }

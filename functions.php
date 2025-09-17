@@ -277,8 +277,21 @@ add_action('wpcf7_mail_sent', 'cf7dtx_increment_mail_counter');
 /* visionequipment.net theme functions */
 
 
-
-
-
-/* visionequipment.net theme functions */
-
+/**
+ * ADDED 09/16/25
+ * Enqueue About template styles.
+ * RELATED: "page-about-ve.php" and "ve-about.css"
+ */
+function ve_enqueue_about_template_assets() {
+	// Only enqueue on pages using our template
+	if (is_page() && is_page_template('page-about-ve.php')) {
+	  wp_enqueue_style(
+		've-about',
+		get_stylesheet_directory_uri() . '/ve-about.css',
+		[],
+		wp_get_theme()->get('Version')
+	  );
+	}
+  }
+  add_action('wp_enqueue_scripts', 've_enqueue_about_template_assets');
+  
